@@ -76,7 +76,7 @@ function Get-TemplateCount {
 function Remove-IgnoredDevices {
 
     $IgnoredDeviceCountBefore = (gci -Path HKLM:\Software\LabTech\Probe\Network).count
-    Remove-Item -Path 'HKLM:\Software\ATERA Networks\test\*' -Recurse -Force
+    Remove-ItemProperty -Path 'HKLM:\Software\LabTech\Probe\Network' -Name "*" -Force
     $IgnoredDeviceCountAfter = (gci -Path HKLM:\Software\LabTech\Probe\Network).count
         If($IgnoredDeviceCountAfter -lt $IgnoredDeviceCountBefore){"Success: $IgnoredDeviceCountBefore devices un-ignored."}
             Else{"Error: Please check the code. Needs moar work! :("}
