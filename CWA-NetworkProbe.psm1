@@ -100,7 +100,7 @@ function Reset-Templates {
     Start-Service -Name LTService,LTSvcMon
 
     $DetectionTemplateCountAfter = (gci -Path HKLM:\Software\LabTech\ProbeService\DetectionTemplates).count
-        If($DetectionTemplateCountAfter -lt $DetectionTemplateCountBefore){"Success: Detection Templates reset."}
+        If($DetectionTemplateCountAfter -le $DetectionTemplateCountBefore){"Success: Detection Templates reset."}
             Else{"Error: Please check the code. Needs moar work! :("}
 
 }
